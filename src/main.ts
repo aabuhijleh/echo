@@ -1,19 +1,26 @@
 // Modules to control application life and create native browser window
 import { app, BrowserWindow } from "electron";
-import * as path from "path";
+import path from "path";
+import config from "../config/config.json";
 
 function createWindow() {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
+    show: false,
     webPreferences: {
       preload: path.join(__dirname, "preload.js")
     }
   });
 
-  // and load the index.html of the app.
-  mainWindow.loadURL("https://echo.appers.ps/index.php");
+  // and load echo here
+  mainWindow.loadURL(config.ECHO_LANDING_PAGE);
+
+  // show window once its ready
+  mainWindow.once("ready-to-show", () => {
+    mainWindow.show();
+  });
 
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()
