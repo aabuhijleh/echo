@@ -9,13 +9,14 @@
     "dist-linux": "electron-builder --config ./electron-builder.json --linux",
     "dist-mac": "electron-builder --config ./electron-builder.json --mac",
     "dist-windows": "electron-builder --config ./electron-builder.json --win",
-    "lint": "tslint --project .",
-    "lint-fix": "tslint --project . --fix",
     "postinstall": "electron-builder install-app-deps",
     "prestart": "npm run compile",
-    "prettier-check": "prettier --check '**/*.{js,jsx,ts,tsx,md,json,html,css,less,scss,vue,gql,yml}'",
-    "prettier-write": "prettier --write '**/*.{js,jsx,ts,tsx,md,json,html,css,less,scss,vue,gql,yml}'",
+    "prettier-check": "prettier --check **/*.{js,jsx,ts,tsx,md,json,html,css,less,scss,vue,gql,yml}",
+    "prettier-write": "prettier --write **/*.{js,jsx,ts,tsx,md,json,html,css,less,scss,vue,gql,yml}",
     "start": "electron .",
+    "stylelint": "stylelint **/*.{css,less,scss}",
+    "tslint": "tslint --project .",
+    "tslint-fix": "tslint --project . --fix",
     "watch": "tsc -w"
   },
   "repository": "https://github.com/aabuhijleh/electron-typescript-quick-start",
@@ -34,16 +35,19 @@
   },
   "license": "CC0-1.0",
   "devDependencies": {
-    "@types/node": "^13.7.4",
+    "@types/node": "^13.7.7",
     "del-cli": "^3.0.0",
-    "electron": "^8.0.1",
+    "electron": "^8.0.2",
     "electron-builder": "^22.3.2",
     "husky": "^4.2.3",
-    "lint-staged": "^10.0.7",
+    "lint-staged": "^10.0.8",
     "prettier": "^1.19.1",
+    "stylelint": "^13.2.0",
+    "stylelint-config-prettier": "^8.0.1",
+    "stylelint-prettier": "^1.1.2",
     "tslint": "^6.0.0",
     "tslint-config-prettier": "^1.18.0",
     "tslint-plugin-prettier": "^2.1.0",
-    "typescript": "^3.8.2"
+    "typescript": "^3.8.3"
   }
 }
